@@ -14,7 +14,7 @@ public class Calculator {
 
         }
     }
-
+    // Using this method to listen to user's key strokes
     public static void pressAnyKey() {
         System.out.println("Press Any Key to Continue!");
         try {
@@ -25,97 +25,107 @@ public class Calculator {
     }
     // Using this method to display the menu
     public static void displayMenu() {
-        System.out.println("Created by:\n\tAbdulrahman Alhabib\n\tStudent 2\n\tStudent 3\n\tStudent 4");
+        System.out.println("Created by:\n\tAbdulrahman Alhabib\n\tAhmed Alghamdi\n\tStudent 3\n\tStudent 4");
         System.out.println("\t\t**menu**");
         System.out.println("1- Addition \n2- Subtraction \n3- Division \n4- Multiplication \n5- Remainder \n6- Square Root \n7- Absolute Value \n8- End");
     }
+
+
+
+
     // Main function || With exception for sleep interruption by user
     public static void main(String[] args) throws InterruptedException {
         // initializing scanner
         Scanner input = new Scanner(System.in);
+        // Initializing variables to chek user input later on
+        int userMenuInput = 0;
+        boolean isInt;
+        boolean isDouble;
 
         // Throw everything in a while loop
         while (true) {
             // Does what it says, displays the menu
-
             displayMenu();
             // Get user input
-            System.out.println("Please choose an option from the Menu:");
+
             // Save User input to a variable
-            int userMenuInput = input.nextInt();
+            do {
+                System.out.println("Please choose an option from the Menu:");
+                // check if user input is correct
+                if(input.hasNextInt()) {
+                    userMenuInput = input.nextInt();
+                    isInt = true;
+                } else {
+                    System.out.println("Please enter a correct number and try again!");
+                    isInt = false;
+                    input.next();
+                }
+            } while (!isInt);
+
+
             // clear the screen
             clrscr();
             // initialize variables for user input calculations
             double x = 0, y = 0;
-            // Perform appropriate calculation depending on user input
+            // Perform appropriate calculation depending on user inputs
+
             switch (userMenuInput) {
 
                 case 1:
                     System.out.println("\tAddition\n+++++++++++++++++++++++++++++++++++");
-                    System.out.println("Please type in the FIRST number:");
-                    x = input.nextDouble();
-                    System.out.println("Please type in the SECOND number:");
-                    y = input.nextDouble();
+                    x = getX(input, x);
+                    y = getY(input, y);
                     System.out.println(x + " + " + y + " = " + (x + y));
                     TimeUnit.SECONDS.sleep(2);
                     break;
 
                 case 2:
                     System.out.println("\tSubtraction\n-------------------------------");
-                    System.out.println("Please type in the FIRST number:");
-                    x = input.nextDouble();
-                    System.out.println("Please type in the SECOND number:");
-                    y = input.nextDouble();
+                    x = getX(input, x);
+                    y = getY(input, y);
                     System.out.println(x + " - " + y + " = " + (x - y));
                     TimeUnit.SECONDS.sleep(2);
                     break;
 
                 case 3:
                     System.out.println("\tDivision\n÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷");
-                    System.out.println("Please type in the FIRST number:");
-                    x = input.nextDouble();
-                    System.out.println("Please type in the SECOND number:");
-                    y = input.nextDouble();
+                    x = getX(input, x);
+                    y = getY(input, y);
                     System.out.println(x + " / " + y + " = " + (x / y));
                     TimeUnit.SECONDS.sleep(2);
                     break;
 
                 case 4:
                     System.out.println("\tMultiplication\n××××××××××××××××××××××××××××");
-                    System.out.println("Please type in the FIRST number:");
-                    x = input.nextDouble();
-                    System.out.println("Please type in the SECOND number:");
-                    y = input.nextDouble();
+                    x = getX(input, x);
+                    y = getY(input, y);
                     System.out.println(x + " × " + y + " = " + (x * y));
                     TimeUnit.SECONDS.sleep(2);
                     break;
 
                 case 5:
                     System.out.println("\tRemainder\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-                    System.out.println("Please type in the FIRST number:");
-                    x = input.nextDouble();
-                    System.out.println("Please type in the SECOND number:");
-                    y = input.nextDouble();
+                    x = getX(input, x);
+                    y = getY(input, y);
                     System.out.println(x + " % " + y + " = " + (x % y));
                     TimeUnit.SECONDS.sleep(2);
                     break;
 
                 case 6:
-                    System.out.println("\tSquare Root\n√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√");
-                    System.out.println("Please type in a number:");
-                    x = input.nextDouble();
+                    System.out.println("\tSquare Root\n================================");
+                    x = getX(input, x);
                     System.out.println("The Square Root of:" + x + " = " + (Math.sqrt(x)));
                     TimeUnit.SECONDS.sleep(2);
                     break;
 
                 case 7:
                     System.out.println("\tAbsolute Value\n|||||||||||||||||||||||||||||||");
-                    System.out.println("Please type in a number:");
-                    x = input.nextDouble();
+                    x = getX(input, x);
                     System.out.println("The Absolute Value of:" + x + " = " + (Math.abs(x)));
+                    break;
 
                 case 8:
-                    System.out.println("Calculator is closed successfully");
+                    System.out.println("Calculator closed successfully");
                     TimeUnit.SECONDS.sleep(2);
                     System.exit(0);
                     break;
@@ -128,5 +138,39 @@ public class Calculator {
             pressAnyKey();
             clrscr();
         }
+    }
+
+    private static double getY(Scanner input, double y) {
+        boolean isDouble;
+        do {
+            System.out.println("Please type in the SECOND number:");
+            // check if user input is correct
+            if(input.hasNextDouble()) {
+                y = input.nextInt();
+                isDouble = true;
+            } else {
+                System.out.println("Please enter a correct number and try again!");
+                isDouble = false;
+                input.next();
+            }
+        } while (!isDouble);
+        return y;
+    }
+
+    private static double getX(Scanner input, double x) {
+        boolean isDouble;
+        do {
+            System.out.println("Please type in the FIRST number:");
+            // check if user input is correct
+            if(input.hasNextDouble()) {
+                x = input.nextInt();
+                isDouble = true;
+            } else {
+                System.out.println("Please enter a correct number and try again!");
+                isDouble = false;
+                input.next();
+            }
+        } while (!isDouble);
+        return x;
     }
 }
