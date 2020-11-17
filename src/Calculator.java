@@ -44,31 +44,30 @@ public class Calculator {
 
         // Throw everything in a while loop
         while (true) {
-            // Does what it says, displays the menu
+            //displays the menu
             displayMenu();
-            // Get user input
 
             // Save User input to a variable
             do {
+                // Prompt user for a choice from the menu
                 System.out.println("Please choose an option from the Menu:");
                 // check if user input is correct
                 if(input.hasNextInt()) {
                     userMenuInput = input.nextInt();
                     isInt = true;
                 } else {
+                    // if choice is not an int, the user is prompted to try again
                     System.out.println("Please enter a correct number and try again!");
                     isInt = false;
                     input.next();
                 }
             } while (!isInt);
-
-
             // clear the screen
             clrscr();
             // initialize variables for user input calculations
             double x = 0, y = 0;
-            // Perform appropriate calculation depending on user inputs
 
+            // Perform appropriate calculation depending on user inputs
             switch (userMenuInput) {
 
                 case 1:
@@ -131,6 +130,7 @@ public class Calculator {
                     break;
 
                 default:
+                    // if user choice is outside of our menu range, user will be notified and prompted to try again
                     System.out.println("Please make sure your choice is within our menu and try again!");
                     TimeUnit.SECONDS.sleep(2);
             }
@@ -139,14 +139,14 @@ public class Calculator {
             clrscr();
         }
     }
-    // This method validates that user input Y is a double and clears scanner if not a double
+    // This method validates that user input Y is a double. Clears scanner and asks for new input if not a double
     private static double getY(Scanner input, double y) {
         boolean isDouble;
         do {
             System.out.println("Please type in the SECOND number:");
             // check if user input is correct
             if(input.hasNextDouble()) {
-                y = input.nextInt();
+                y = input.nextDouble();
                 isDouble = true;
             } else {
                 System.out.println("Please enter a correct number and try again!");
@@ -158,14 +158,14 @@ public class Calculator {
     }
 
 
-    // This method validates that user input X is a double and clears scanner if not a double
+    // This method validates that user input X is a double. Clears scanner and asks for new input if not a double
     private static double getX(Scanner input, double x) {
         boolean isDouble;
         do {
             System.out.println("Please type in the FIRST number:");
             // check if user input is correct
             if(input.hasNextDouble()) {
-                x = input.nextInt();
+                x = input.nextDouble();
                 isDouble = true;
             } else {
                 System.out.println("Please enter a correct number and try again!");
