@@ -139,7 +139,7 @@ public class Calculator {
             clrscr();
         }
     }
-
+    // This method validates that user input Y is a double and clears scanner if not a double
     private static double getY(Scanner input, double y) {
         boolean isDouble;
         do {
@@ -157,6 +157,8 @@ public class Calculator {
         return y;
     }
 
+
+    // This method validates that user input X is a double and clears scanner if not a double
     private static double getX(Scanner input, double x) {
         boolean isDouble;
         do {
