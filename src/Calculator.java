@@ -26,7 +26,7 @@ public class Calculator {
     // Using this method to display the menu
     public static void displayMenu() {
         System.out.println("================\n  My Calculator\n================");
-        System.out.println("Created by:\n\tAbdulrahman Alhabib\n\tAhmed Alghamdi\n\tFeras Alotaibi");
+        System.out.println("Created by:\n\tAbdulrahman Alhabib\n\tAhmed Alghamdi\n\tFeras Alotaibi\n\tAbdulellah Khalid");
         System.out.println("\t\t**menu**");
         System.out.println("1- Addition \n2- Subtraction \n3- Division \n4- Multiplication \n5- Remainder \n6- Square Root \n7- Absolute Value \n8- End");
     }
