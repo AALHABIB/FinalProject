@@ -38,7 +38,7 @@ public class Calculator {
     public static void main(String[] args) throws InterruptedException {
         // initializing scanner
         Scanner input = new Scanner(System.in);
-        // Initializing variables to chek user input later on
+        // Initializing variables to check user input later on
         int userMenuInput = 0;
         boolean isInt;
         boolean isDouble;
